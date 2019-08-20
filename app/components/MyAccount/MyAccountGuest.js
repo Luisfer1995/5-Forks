@@ -1,6 +1,6 @@
-import React from 'react';
-import {Text,View,ActivityIndicator,StyleSheet} from 'react-native';
-import{Button,Image} from 'react-native-elements'
+import React from "react";
+import {Text,View,ActivityIndicator,StyleSheet} from "react-native";
+import{Button,Image} from "react-native-elements"
 
 export default class MyAccountGuest extends Component{
 

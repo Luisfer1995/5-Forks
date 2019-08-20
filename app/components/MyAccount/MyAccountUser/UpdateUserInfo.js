@@ -3,9 +3,9 @@ import{StyleSheet,View,Text}from 'react-native';
 import {ListItem} from 'react-native-elements';
 import Toast,{DURATION}from 'react-native-easy-toast';
 
-import OverlayOneInput from '../../Elements/OverlayTwoInputs'
+import OverlayOneInput from '../../Elements/OverlayOneInput'
 import OverlayTwoInputs from '../../Elements/OverlayTwoInputs'
-import OverlayThreeInputs from '../../Elements/OverlayThreeInput';
+import OverlayThreeInputs from '../../Elements/OverlayThreeInputs';
 
 export default class UpdateUserInfo extends Component{
      constructor(props) {
@@ -23,7 +23,7 @@ export default class UpdateUserInfo extends Component{
                 iconNameRight:"chevron-right",
                 iconColorRight :"#ccc",
                 
-                onPress = ()=> this.openOverlay('Nombre y Apellidos',this.updateUserName, props.userInfo.displayName )
+                onPress : ()=> this.openOverlay('Nombre y Apellidos',this.updateUserName, props.userInfo.displayName )
                 
             },
             {
@@ -33,7 +33,7 @@ export default class UpdateUserInfo extends Component{
                 iconNameLeft:"at",
                 iconNameRight:"chevron-right",
                 iconColorRight :"#ccc",
-                onPress = ()=>this.openOverlayTwoInpunts('Email','Contraseña',props.userInfo.email,this.updateUserEmail)
+                onPress : ()=>this.openOverlayTwoInpunts('Email','Contraseña',props.userInfo.email,this.updateUserEmail)
                 
             },
             {
@@ -44,7 +44,7 @@ export default class UpdateUserInfo extends Component{
                 iconNameRight:"chevron-right",
                 iconColorRight :"#ccc",
                 
-                onPress = ()=>this.openOverlayThreeInputs('Ingresa tu contraseña','Nueva contraseña','Repetir nueva contraseña',this.updateUserPassword)
+                onPress : ()=>this.openOverlayThreeInputs('Ingresa tu contraseña','Nueva contraseña','Repetir nueva contraseña',this.updateUserPassword)
                 
             }           
            ]
@@ -108,16 +108,16 @@ export default class UpdateUserInfo extends Component{
                     this.state.updateUserPassword(currentPassword,newPassword);
                 }
             }else{
-                this.refs.toast.show('Las contraseñas deben ser iguales')
+                this.refs.toast.show('Las nuevas contraseñas deben ser iguales');
             }
         }else{
-            this.refs.toast.show('Tienes que rellenar todos los campos')
+            this.refs.toast.show('Tienes que rellenar todos los campos');
         }
         this.setState({
             overlayComponent:null
-        })
+        });
 
-     }
+     };
 
      openOverlayThreeInputs= (placeholderOne, placeholderTwo,placeholderThree, updateFunction)=>{
           this.setState({
