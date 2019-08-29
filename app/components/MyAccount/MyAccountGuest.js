@@ -1,4 +1,4 @@
-import React from "react";
+import React,{Component} from "react";
 import {Text,View,ActivityIndicator,StyleSheet} from "react-native";
 import{Button,Image} from "react-native-elements"
 
@@ -27,6 +27,7 @@ export default class MyAccountGuest extends Component{
                     ¿Cómo describirías tu mejor restaurante? Busca y ve  los mejores restaurantes de una forma sencilla, vota  cuál te ha gustado más y comenta como ha sido tu experiencia.
                 </Text>
                 <Button
+                    title="Registrarme"
                     buttonStyle={styles.btnViewProfile}
                     onPress={()=>goToScreen("Login")}/>
             
@@ -57,8 +58,9 @@ description:{
     marginBottom:20
 },
 btnViewProfile:{
-        width:"100%",
+        width:"50%",
+        paddingRight:27,
         backgroundColor:"#00a680"
-}
+},
 
 });

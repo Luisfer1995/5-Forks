@@ -3,7 +3,7 @@ import{StyleSheet,View,Text}from 'react-native';
 import {ListItem} from 'react-native-elements';
 import Toast,{DURATION}from 'react-native-easy-toast';
 
-import OverlayOneInput from '../../Elements/OverlayOneInput'
+import OverlayOneInput from '../../Elements/OverlayOneInput'    
 import OverlayTwoInputs from '../../Elements/OverlayTwoInputs'
 import OverlayThreeInputs from '../../Elements/OverlayThreeInputs';
 
@@ -168,7 +168,8 @@ export default class UpdateUserInfo extends Component{
 const styles = StyleSheet.create ( {
     contentContainerStyle:{
          borderBottomWidth:1,
-         borderBottomColor:"e3e3d3",
+         borderBottomColor:"#e3e3d3",
+         
         
 
     }

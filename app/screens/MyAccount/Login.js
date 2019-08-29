@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {StyleSheet,View,Text,ActivityIndicator} from 'react-native';
+import {StyleSheet,View,ActivityIndicator,Text} from 'react-native';
 import {Image, Button,Divider,SocialIcon} from 'react-native-elements';
 import t from 'tcomb-form-native';
 const Form = t.form.Form;
@@ -91,14 +91,16 @@ export default class Login extends Component{
         });
     };
 
-
+    goToScreen=nameScreen=>{
+        this.props.navigation.navigate(nameScreen)
+    }
 
     render (){
         const {loginStruct,loginOption,loginErrorMessage}=this.state;
         return(
         <View style={styles.viewBody}>
             <Image
-                source={require("../../../assets/img/5t.svg")}
+                source={require("../../../assets/img/food.jpg")}
                 containerStyle={styles.containerLogo}
                 style={styles.logo}
                 PlaceholderContent={<ActivityIndicator/>}
@@ -113,15 +115,14 @@ export default class Login extends Component{
                 <Button title="Login" buttonStyle={styles.buttonLoginCtn} onPress={()=>this.login()} />
                 <Text 
                     style={styles.textRegister}>¿Aún no tienes una cuenta?{""}  
-                    <Text style={styles.btnRegister} onPress={this.props.navigation.navigate("Register")}>Registrate</Text> 
+                    <Text style={styles.btnRegister} onPress={()=>this.goToScreen("Register")}>Registrate</Text> 
                 </Text>
                 <Text style={styles.loginErrorMessage}>{loginErrorMessage}</Text>
                 <Divider style={styles.divider}/>
                 <SocialIcon
                         title='Iniciar sesión con Facebook'
-                        button
-                        type='facebook'
-                        onPress={()=>this.loginFacebook( )}
+                        button type='facebook'
+                        onPress={()=>this.loginFacebook()}
                         />
             </View>
             <Toast
@@ -145,6 +146,7 @@ const styles= StyleSheet.create({
             marginLeft: 40,
             marginRight: 40,
             marginTop:40,
+            height:"100%",
             
     },
     logo:{
@@ -164,7 +166,7 @@ const styles= StyleSheet.create({
         alignItems:"center"
     },
     loginErrorMessage:{
-        color:"f00",
+        color:"#f00",
         textAlign:"center",
         marginTop:20,
     },

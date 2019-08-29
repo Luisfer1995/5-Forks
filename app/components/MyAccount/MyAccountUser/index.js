@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {Stylesheet,View,Text} from 'react-native-elements'
+import {StyleSheet,View,} from 'react-native'
 import UserInfo from './UserInfo.js'
 
 export default class MyAccountUser extends Component{
@@ -15,7 +15,7 @@ export default class MyAccountUser extends Component{
         )
     }
 }
-const styles=Stylesheet.create({
+const styles=StyleSheet.create({
     viewUserAccount:{
         height:"100%",
        backgroundColor:"#f2f2f2"

@@ -58,7 +58,7 @@ const styles=StyleSheet.create({
         width:"100%",
         backgroundColor:"#fff",
         padding:20,
-        paddingColor:"#00a680",
+        borderColor:"#00a680",
         borderLeftWidth:2,
         borderRightWidth:2,
         borderTopWidth:2,

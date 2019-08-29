@@ -91,7 +91,7 @@ updateUserPassword=async (currentPassword,newPassword)=>{
 };
 returnUpdateUserInfoComponent=userInfoData=>{
 
-    if(userInfoData.hasOwnPropery("uid")){
+    if(userInfoData.hasOwnProperty("uid")){
         return (
             <UpdateUserInfo 
                 userInfo={this.state.userInfo} 
@@ -218,7 +218,7 @@ const styles=StyleSheet.create({
         flexDirection:"row",
         paddingTop:30,
         paddingBottom:30,
-        backgrodunColor:"#f2f2f2"
+        backgroundColor:"#f2f2f2"
     },
     userAvatar:{
         marginRight:20,
@@ -231,6 +231,8 @@ const styles=StyleSheet.create({
         marginTop:30,
         borderRadius: 0,
         backgroundColor:"#fff",
+        borderRadius:5,
+        alignSelf:"center",
         borderColor:"#e3e3e3",
         borderWidth:2,
         width:"60%",

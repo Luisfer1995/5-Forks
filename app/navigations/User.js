@@ -2,19 +2,30 @@ import React from 'react';
 import {createBottomTabNavigator,createAppContainer,createStackNavigator}from 'react-navigation';
 import {Icon} from "react-native-elements"
 //Screens
-import HomeScreen from "../screens/Home";
+
 import MenuDiaScreen from "../screens/MenuDia";
 import CartaScreen from "../screens/Carta";
 import MyAccountScreen from "../screens/MyAccount/MyAccount"
 import RegisterScreen from "../screens/MyAccount/Register";
 import LoginScreen from "../screens/MyAccount/Login";
 
-const homeScreenStack =createStackNavigator({
-    Home:{
-        screen:HomeScreen,
+//Restaurant screen
+
+import RestaurantsScreen from "../screens/Restaurants/Restaurants";
+import AddRestaurantScreen from '../screens/Restaurants/AddRestaurant'
+
+const restaurantsScreenStack =createStackNavigator({
+    Restaurants:{
+        screen:RestaurantsScreen,
         navigationOptions:({navigation})=>({
-            title:"             Inicio",
+            title:"Home",
                 
+        })
+    },
+    AddRestaurant:{
+        screen:AddRestaurantScreen,
+        navigationOptions:({navigation})=>({
+            title:"Nuevo Restaurante"
         })
     }
 });
@@ -60,8 +71,8 @@ const myAccountScreenStack =createStackNavigator({
 });
 
 const RootStack = createBottomTabNavigator ({
-    Home:{
-        screen:homeScreenStack,
+    Restaurants:{
+        screen:restaurantsScreenStack,
         navigationOptions:({navigation})=>({
             tabBarLabel:"Home", //Cambia el label de la zona inferior
             tabBarIcon:({tintColor})=> (
@@ -90,7 +101,7 @@ const RootStack = createBottomTabNavigator ({
     Carta:{
         screen:cartaScreenStack,
         navigationOptions:({navigation})=>({
-            tabBarLabel:'Especialidades de la Casa',
+            tabBarLabel:'Carta',
             tabBarIcon:({tintColor})=>(
                 <Icon 
                     name='home-outline'
@@ -117,7 +128,7 @@ const RootStack = createBottomTabNavigator ({
  },
  {  
      //order:[],
-     initialRouteName:"MyAccount",
+     initialRouteName:"Restaurants",
      tabBarOptions:{
         inactiveTintColor:"#646464",
         activeTintColor:"#00a680"

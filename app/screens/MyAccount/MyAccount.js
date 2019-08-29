@@ -5,13 +5,13 @@ import React, {Component} from "react"
 import * as firebase from 'firebase';
 
 import MyAccountGuest  from "../../components/MyAccount/MyAccountGuest";
-import MyAccountUser from '../../components/MyAccount/MyAccountUser/index';
+import MyAccountUser from "../../components/MyAccount/MyAccountUser/index";
 
 
 export default class MyAccount extends Component {
 
-    constructor(props) {
-      super(props)
+    constructor() {
+      super()
     
       this.state = {
          login:false

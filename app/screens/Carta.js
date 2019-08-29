@@ -5,7 +5,7 @@ export default class Carta extends Component {
     render (){
         return(
             <View style={styles.viewBody}>
-                <Text> Disfruta de nustras especialidades</Text>
+                <Text> Disfruta de nustras especialidadesssss</Text>
             </View>
         );
     }
