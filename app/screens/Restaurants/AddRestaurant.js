@@ -1,7 +1,8 @@
 import React,{Component} from 'react';
 import {StyleSheet,View,ActivityIndicator } from 'react-native'
 import{Icon,Image,Button,Text,Overlay} from 'react-native-elements';
-import {Permissions,ImagePicker} from 'expo';
+import * as ImagePicker  from 'expo-image-picker'
+import * as Permissions from 'expo-permissions';
 import Toast,{DURATION} from 'react-native-easy-toast';
 import {uploadImage} from '../../utils/UploadImage';
 const Form = t.form.Form;
@@ -13,6 +14,7 @@ import firebase from 'firebase/app';
 import "firebase/firestore";
 
 
+
 const db=firebase.firestore(firebaseapp)
 
 
@@ -20,7 +22,7 @@ const db=firebase.firestore(firebaseapp)
 
 
 export default class AddRestaurant extends Component {
-
+    
     constructor(props) {
       super(props)
     
@@ -51,7 +53,7 @@ export default class AddRestaurant extends Component {
     }
 
     uploadImage= async()=>{
-        const resultPermission = await Permissions.askAsync(permissions.CAMERA_ROLL);
+        const resultPermission = await Permissions.askAsync(Permissions.CAMERA_ROLL);
         
         if(resultPermission.status === "denied"){
             this.refs.toast.show(
@@ -134,7 +136,7 @@ export default class AddRestaurant extends Component {
                 <View style={styles.viewPhoto}>
                    {this.isImageRestaurant(imageUriRestaurant)}
                 </View>
-                    <View>
+                    <View style={styles.formRestaurant}>
                     <Form
                         ref="addRestaurantForm"
                         type={AddRestaurantStruct}
@@ -180,13 +182,19 @@ export default class AddRestaurant extends Component {
 const styles = StyleSheet.create({
     viewBody:{
         flex:1, 
+        height:'100%'
         
     },
     viewPhoto:{
         alignItems:"center",
-        height:200,
+        height:100,
         marginBottom:20
     },
+    formRestaurant:{
+        marginTop:10,
+        width:'95%'
+    },
+
     viewIconCamera:{
         flex :1,
         alignItems:"flex-start",
@@ -204,7 +212,8 @@ const styles = StyleSheet.create({
     },
     btnAddRestaurant:{
         backgroundColor:"#00a680",
-        margin:20
+        margin:20,
+        width:"60%"
     },
     overlayLoading:{
         padding:20,

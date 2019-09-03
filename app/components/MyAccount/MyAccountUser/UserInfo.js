@@ -5,7 +5,8 @@ import* as firebase from 'firebase';
 import Toast,{DURATION} from 'react-native-easy-toast'
 import UpdateUserInfo from './UpdateUserInfo'
 
-import {Permissions,ImagePicker} from 'expo';
+import {ImagePicker} from 'expo';
+import * as Permissions from 'expo-permissions'
 
 
 
@@ -120,7 +121,7 @@ changeAvatarUser=async ()=>{
         const result= await ImagePicker.launchImageLibraryAsync({
             allowsEditing:true,
             aspect:[4,3]
-        }) ;
+        }) ; 
     
         if(result.cancelled){
             this.refs.Toast.show('Galería de imagenes cerrada',1200)
@@ -150,7 +151,7 @@ uploadImage = async (uri,nameImage)=>{
 
     return new Promise((resolve,reject)=>{
         let xhr = new XMLHttpRequest();
-        xhr.onerror=reject
+        xhr.onerror=reject;
         xhr.onreadystatechange= ()=>{
             if(xhr.readyState === 4){
                 resolve(xhr.response);
@@ -180,7 +181,7 @@ uploadImage = async (uri,nameImage)=>{
                     rounded
                     size="large"
                     showEditButton
-                    onEditPress={()=>this.changeAvatarUser}
+                    onEditPress={()=>this.changeAvatarUser()}
                     source={{uri:this.checkUserAvatar(photoURL) }}
                     containerStyle={styles.userAvatar}/> 
                    <View> 
